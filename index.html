@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Practice 5 — Catalog + Cart</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand__dot"></span>
+      Electro<span class="brand__accent">Shop</span>
+    </div>
+
+    <div class="search">
+      <img class="search__icon" src="search-interface-symbol.png" alt="search">
+      <input id="searchInput" type="search" placeholder="Пошук: laptop, headphones, camera..." autocomplete="off" />
+      <button id="clearSearch" class="icon-btn" aria-label="Очистити">
+        <img src="close.png" alt="clear">
+      </button>
+    </div>
+
+    <select id="categorySelect" class="select" aria-label="Категорія"></select>
+
+    <button id="cartBtn" class="cart-btn" type="button">
+      <img class="cart-btn__icon" src="shopping-cart.png" alt="cart">
+      <span class="cart-btn__text">Кошик</span>
+      <span id="cartCount" class="badge">0</span>
+    </button>
+  </header>
+
+  <main class="container">
+    <div class="meta">
+      <div>
+        <h1>Електроніка</h1>
+        <p id="resultsInfo" class="muted">Завантаження…</p>
+      </div>
+    </div>
+
+    <section id="grid" class="grid"></section>
+  </main>
+
+  <!-- CART DRAWER -->
+  <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true">
+    <aside class="drawer">
+      <header class="drawer__head">
+        <h2>Кошик</h2>
+        <button id="closeCart" class="icon-btn" aria-label="Закрити кошик">
+          <img src="close.png" alt="close">
+        </button>
+      </header>
+
+      <div id="cartList" class="cart-list"></div>
+
+      <footer class="drawer__foot">
+        <div class="totals">
+          <div class="totals__row">
+            <span>Сума</span>
+            <strong id="subtotal">0</strong>
+          </div>
+          <div class="totals__row totals__muted">
+            <span>Знижка</span>
+            <span id="discountTotal">0</span>
+          </div>
+          <div class="totals__row totals__big">
+            <span>До сплати</span>
+            <strong id="total">0</strong>
+          </div>
+        </div>
+
+        <button id="checkout" class="primary" type="button">Оформити</button>
+        <p class="hint">Практична №5: пошук, фільтр, додавання в кошик, видалення.</p>
+      </footer>
+    </aside>
+  </div>
+</body>
+</html>
